@@ -1,0 +1,40 @@
+﻿<Window x:Class="JsonEditor.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:JsonEditor.App"
+        xmlns:vm="clr-namespace:JsonEditor.App.ViewModels"
+        Title="Json Editor" 
+        Icon="logo.ico"
+        Height="350" 
+        Width="525"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding OpenNew}" 
+                    Modifiers="Control"
+                    Key="N" />
+        <KeyBinding Command="{Binding OpenExisting}" 
+                    Modifiers="Control"
+                    Key="O" />
+        <KeyBinding Command="{Binding SaveCurrent}" 
+                    Modifiers="Control"
+                    Key="S" />
+        <KeyBinding Command="{Binding CloseCurrent}" 
+                    Modifiers="Control"
+                    Key="W" />
+        <KeyBinding Command="{Binding CloseApplication}" 
+                    Modifiers="Control"
+                    Key="E" />
+    </Window.InputBindings>
+    
+    <ContentPresenter Content="{Binding}" />
+</Window>

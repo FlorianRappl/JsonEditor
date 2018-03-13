@@ -1,0 +1,93 @@
+﻿<Application x:Class="JsonEditor.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+             xmlns:local="clr-namespace:JsonEditor.App"
+             xmlns:vm="clr-namespace:JsonEditor.App.ViewModels"
+             xmlns:v="clr-namespace:JsonEditor.App.Views"
+             xmlns:c="clr-namespace:JsonEditor.App.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="PrimaryHueLightBrush" 
+                                     Color="{StaticResource Primary100}" />
+                    
+                    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" 
+                                     Color="{StaticResource Primary100Foreground}" />
+                    
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" 
+                                     Color="{StaticResource Primary500}" />
+                    
+                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" 
+                                     Color="{StaticResource Primary500Foreground}" />
+                    
+                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" 
+                                     Color="{StaticResource Primary700}" />
+                    
+                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" 
+                                     Color="{StaticResource Primary700Foreground}" />
+
+                    <c:JsonTokenConverter x:Key="JTokenConverter" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/materialdesign.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:MainViewModel}">
+                <v:MainView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:FileViewModel}">
+                <v:FileView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ItemViewModel}">
+                <v:ItemView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ValidationViewModel}">
+                <v:ValidationView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:TypeViewModel}">
+                <v:TypeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ArrayViewModel}">
+                <v:ArrayView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:BooleanViewModel}">
+                <v:BooleanView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:EnumViewModel}">
+                <v:EnumView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:NumberViewModel}">
+                <v:NumberView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:IntegerViewModel}">
+                <v:IntegerView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ObjectViewModel}">
+                <v:ObjectView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:StringViewModel}">
+                <v:StringView />
+            </DataTemplate>
+
+            <Style TargetType="{x:Type dragablz:TabablzControl}" 
+                   BasedOn="{StaticResource MaterialDesignTabablzControlStyle}" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
